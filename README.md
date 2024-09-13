@@ -1,22 +1,4 @@
-# <p style="text-align: center;">PROJECT: IMPACTLAB LAB & PAVIC LAB LAB 2021 TO 2023</p>
- **Prof:Antonio Souto Rodriguez**
 
-<h1 style="text-align: center;">PROJECT: IMPACTLAB LAB & PAVIC LAB LAB 2021 TO 2023</h1>
-
-### Projects:Pararel Computing : C++, CUDA, HALIDE
-#### Image processing: Image Filtering
-  - Space Dominance
-  - Frequency domain
-<img src="https://github.com/AntonioRodriguezUFAM/IMPACTLAB_GUI_2023/blob/c5aa5a2dc5ac1883b68f1a1795a95173097c524a/Project_Ufam01.png"/>
--**Prof:Antonio Souto Rodriguez**
-
-# Arquiteturas Heterogêneas - Turma 23/01
-# Programacao em Parallel  - Turma 23/01
-
-## PROJECTO : IMPACT & PAVIC LAB 2023
-##      IMPACTLAB LAB 2023
-##      PAVIC LAB LAB 2023
-###            PROJECTO: GUI - IMAGE PROCESSING
 
 Projeto Tarefas:
 - Tarefa 1 - Criar grupos de 3 a 5
@@ -127,8 +109,3 @@ Quando falamos sobre o desempenho entre diferentes bibliotecas ou classes de pro
 A melhor escolha entre `stbi` e a classe `Bitmap` dependeria das suas necessidades específicas, da complexidade do seu projeto e da sua familiaridade com a programação em C ou .NET. Se você está procurando por desempenho bruto e está confortável com a programação em C, `stbi` pode ser a melhor escolha. Se você está procurando por uma implementação mais fácil e integração com outras funcionalidades .NET, a classe `Bitmap` pode ser a melhor escolha.
 
  Também pode ser interessante realizar alguns benchmarks com sua carga de trabalho específica para ver qual oferece um melhor desempenho.
-
-### Treinamento Pavic - Turma II 2023
-<img src="https://github.com/AntonioRodriguezUFAM/IMPACTLAB_GUI_2023/blob/6bf1585629f06736f3cf113bba4905f7e6e68773/Treinamento%20Pavic%20-%20Turma%20II%202023.jpeg"/>
-- **Treinamento Pavic - Turma II 2023**
-- #### Prof:Antonio Souto Rodriguez
