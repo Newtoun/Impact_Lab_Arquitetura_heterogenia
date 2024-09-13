@@ -1,10 +1,5 @@
 #pragma once
 #include <string>
-//
-//extern "C" {
-//#include "include/stb_image.h"
-//#include "include/stb_image_write.h"
-//}
 
 namespace IMPACTLABGUI2024 {
 
@@ -58,6 +53,11 @@ namespace IMPACTLABGUI2024 {
 
 	private: System::Windows::Forms::PictureBox^ Output_Image_Box;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
+
+
+
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -65,7 +65,7 @@ namespace IMPACTLABGUI2024 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -84,6 +84,7 @@ namespace IMPACTLABGUI2024 {
 			this->ImageToBlue = (gcnew System::Windows::Forms::Button());
 			this->Output_Image_Box = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Input_Image_Box))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Output_Image_Box))->BeginInit();
 			this->SuspendLayout();
@@ -138,10 +139,10 @@ namespace IMPACTLABGUI2024 {
 			this->ImageToBlue->FlatStyle = System::Windows::Forms::FlatStyle::System;
 			this->ImageToBlue->Font = (gcnew System::Drawing::Font(L"Calibri", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ImageToBlue->Location = System::Drawing::Point(138, 10);
+			this->ImageToBlue->Location = System::Drawing::Point(150, 24);
 			this->ImageToBlue->Margin = System::Windows::Forms::Padding(2);
 			this->ImageToBlue->Name = L"ImageToBlue";
-			this->ImageToBlue->Size = System::Drawing::Size(120, 26);
+			this->ImageToBlue->Size = System::Drawing::Size(225, 26);
 			this->ImageToBlue->TabIndex = 21;
 			this->ImageToBlue->Text = L"Image To Blue";
 			this->ImageToBlue->UseVisualStyleBackColor = true;
@@ -164,20 +165,33 @@ namespace IMPACTLABGUI2024 {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::System;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Calibri", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(138, 40);
+			this->button1->Location = System::Drawing::Point(150, 54);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(120, 26);
+			this->button1->Size = System::Drawing::Size(225, 26);
 			this->button1->TabIndex = 22;
 			this->button1->Text = L"Image To Negative";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &IMPACTLAB_Form::ImageToNegative_Click);
 			// 
+			// button2
+			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Calibri", 10.2F));
+			this->button2->Location = System::Drawing::Point(150, 85);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(225, 26);
+			this->button2->TabIndex = 26;
+			this->button2->Text = L"Opacity image";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &IMPACTLAB_Form::Invertido_Click);
+			// 
 			// IMPACTLAB_Form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1211, 489);
+			this->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->ClientSize = System::Drawing::Size(1211, 595);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->Output_Image_Box);
 			this->Controls->Add(this->ImageToBlue);
@@ -188,6 +202,7 @@ namespace IMPACTLABGUI2024 {
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"IMPACTLAB_Form";
 			this->Text = L"IMPACTLAB PROJETO 2024";
+			this->Load += gcnew System::EventHandler(this, &IMPACTLAB_Form::IMPACTLAB_Form_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Input_Image_Box))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Output_Image_Box))->EndInit();
 			this->ResumeLayout(false);
@@ -302,5 +317,30 @@ namespace IMPACTLABGUI2024 {
 		}
 	}
 
-	};
+
+private: System::Void Invertido_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (Input_Image_Box->Image != nullptr) {
+		
+		Bitmap^ bmp = dynamic_cast<Bitmap^>(Input_Image_Box->Image->Clone());
+
+		for (int y = 0; y < bmp->Height; y++) {
+			for (int x = 0; x < bmp->Width; x++) {
+				Color pixelColor = bmp->GetPixel(x, y);
+				Color newColor = Color::FromArgb(pixelColor.A-125, pixelColor.R, pixelColor.G, pixelColor.B);
+				bmp->SetPixel(x, y, newColor);
+			}
+		}
+
+		Output_Image_Box->Image = bmp;
+	}
+	else {
+		MessageBox::Show("No image loaded in the input image box", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+}
+
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void IMPACTLAB_Form_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }
