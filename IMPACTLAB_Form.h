@@ -187,7 +187,7 @@ namespace IMPACTLABGUI2024 {
 			this->Controls->Add(this->btopen);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"IMPACTLAB_Form";
-			this->Text = L"IMPACTLAB PROJECT 2023";
+			this->Text = L"IMPACTLAB PROJETO 2024";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Input_Image_Box))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Output_Image_Box))->EndInit();
 			this->ResumeLayout(false);
