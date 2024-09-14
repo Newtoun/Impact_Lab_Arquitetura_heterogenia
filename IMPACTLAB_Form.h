@@ -199,7 +199,7 @@ namespace IMPACTLABGUI2024 {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(594, 94);
+			this->label1->Location = System::Drawing::Point(560, 334);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(113, 31);
 			this->label1->TabIndex = 27;
