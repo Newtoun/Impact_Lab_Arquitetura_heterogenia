@@ -1,5 +1,10 @@
 #pragma once
+#include <iostream>
 #include <string>
+#include <chrono>
+#include <format>
+
+using namespace std;
 
 namespace IMPACTLABGUI2024 {
 
@@ -54,6 +59,9 @@ namespace IMPACTLABGUI2024 {
 	private: System::Windows::Forms::PictureBox^ Output_Image_Box;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Label^ label1;
+
+
 
 
 
@@ -85,13 +93,14 @@ namespace IMPACTLABGUI2024 {
 			this->Output_Image_Box = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Input_Image_Box))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Output_Image_Box))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btopen
 			// 
-			this->btopen->Location = System::Drawing::Point(9, 10);
+			this->btopen->Location = System::Drawing::Point(78, 11);
 			this->btopen->Margin = System::Windows::Forms::Padding(2);
 			this->btopen->Name = L"btopen";
 			this->btopen->Size = System::Drawing::Size(98, 40);
@@ -102,7 +111,7 @@ namespace IMPACTLABGUI2024 {
 			// 
 			// btclose
 			// 
-			this->btclose->Location = System::Drawing::Point(9, 54);
+			this->btclose->Location = System::Drawing::Point(78, 55);
 			this->btclose->Margin = System::Windows::Forms::Padding(2);
 			this->btclose->Name = L"btclose";
 			this->btclose->Size = System::Drawing::Size(98, 40);
@@ -113,7 +122,7 @@ namespace IMPACTLABGUI2024 {
 			// 
 			// btExit
 			// 
-			this->btExit->Location = System::Drawing::Point(9, 99);
+			this->btExit->Location = System::Drawing::Point(78, 100);
 			this->btExit->Margin = System::Windows::Forms::Padding(2);
 			this->btExit->Name = L"btExit";
 			this->btExit->Size = System::Drawing::Size(98, 40);
@@ -125,11 +134,11 @@ namespace IMPACTLABGUI2024 {
 			// Input_Image_Box
 			// 
 			this->Input_Image_Box->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->Input_Image_Box->Location = System::Drawing::Point(138, 153);
+			this->Input_Image_Box->Location = System::Drawing::Point(124, 153);
 			this->Input_Image_Box->Margin = System::Windows::Forms::Padding(2);
-			this->Input_Image_Box->MaximumSize = System::Drawing::Size(323, 261);
+			this->Input_Image_Box->MaximumSize = System::Drawing::Size(400, 400);
 			this->Input_Image_Box->Name = L"Input_Image_Box";
-			this->Input_Image_Box->Size = System::Drawing::Size(323, 261);
+			this->Input_Image_Box->Size = System::Drawing::Size(400, 400);
 			this->Input_Image_Box->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->Input_Image_Box->TabIndex = 4;
 			this->Input_Image_Box->TabStop = false;
@@ -139,7 +148,7 @@ namespace IMPACTLABGUI2024 {
 			this->ImageToBlue->FlatStyle = System::Windows::Forms::FlatStyle::System;
 			this->ImageToBlue->Font = (gcnew System::Drawing::Font(L"Calibri", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ImageToBlue->Location = System::Drawing::Point(150, 24);
+			this->ImageToBlue->Location = System::Drawing::Point(249, 25);
 			this->ImageToBlue->Margin = System::Windows::Forms::Padding(2);
 			this->ImageToBlue->Name = L"ImageToBlue";
 			this->ImageToBlue->Size = System::Drawing::Size(225, 26);
@@ -151,11 +160,11 @@ namespace IMPACTLABGUI2024 {
 			// Output_Image_Box
 			// 
 			this->Output_Image_Box->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->Output_Image_Box->Location = System::Drawing::Point(751, 153);
+			this->Output_Image_Box->Location = System::Drawing::Point(710, 153);
 			this->Output_Image_Box->Margin = System::Windows::Forms::Padding(2);
-			this->Output_Image_Box->MaximumSize = System::Drawing::Size(323, 261);
+			this->Output_Image_Box->MaximumSize = System::Drawing::Size(400, 400);
 			this->Output_Image_Box->Name = L"Output_Image_Box";
-			this->Output_Image_Box->Size = System::Drawing::Size(323, 261);
+			this->Output_Image_Box->Size = System::Drawing::Size(400, 400);
 			this->Output_Image_Box->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->Output_Image_Box->TabIndex = 25;
 			this->Output_Image_Box->TabStop = false;
@@ -165,7 +174,7 @@ namespace IMPACTLABGUI2024 {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::System;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Calibri", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(150, 54);
+			this->button1->Location = System::Drawing::Point(249, 55);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(225, 26);
@@ -177,7 +186,7 @@ namespace IMPACTLABGUI2024 {
 			// button2
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Calibri", 10.2F));
-			this->button2->Location = System::Drawing::Point(150, 85);
+			this->button2->Location = System::Drawing::Point(249, 86);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(225, 26);
 			this->button2->TabIndex = 26;
@@ -185,12 +194,25 @@ namespace IMPACTLABGUI2024 {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &IMPACTLAB_Form::Invertido_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(594, 94);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(113, 31);
+			this->label1->TabIndex = 27;
+			this->label1->Text = L"TEMPO";
+			this->label1->Click += gcnew System::EventHandler(this, &IMPACTLAB_Form::label1_Click_1);
+			// 
 			// IMPACTLAB_Form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->ClientSize = System::Drawing::Size(1211, 595);
+			this->ClientSize = System::Drawing::Size(1186, 595);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->Output_Image_Box);
@@ -206,6 +228,7 @@ namespace IMPACTLABGUI2024 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Input_Image_Box))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Output_Image_Box))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -239,6 +262,8 @@ namespace IMPACTLABGUI2024 {
 	}
 
 	private: System::Void ImageToBlue_Click(System::Object^ sender, System::EventArgs^ e) {
+		auto inicio = std::chrono::high_resolution_clock::now();
+
 		if (Input_Image_Box->Image != nullptr) {
 			Bitmap^ bmp = dynamic_cast<Bitmap^>(Input_Image_Box->Image->Clone());
 
@@ -255,10 +280,19 @@ namespace IMPACTLABGUI2024 {
 		else {
 			MessageBox::Show("No image loaded in the input image box", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
+		auto fim = std::chrono::high_resolution_clock::now();
+
+		std::chrono::duration<double> duracao = fim - inicio;
+
+		cout << duracao.count() << endl;
+
+		string str = std::to_string(duracao.count());
+		this->label1->Text = gcnew System::String(str.c_str());
 
 	}
 
 	private: System::Void ImageToNegative_Click(System::Object^ sender, System::EventArgs^ e) {
+		auto inicio = std::chrono::high_resolution_clock::now();
 		if (Input_Image_Box->Image != nullptr) {
 			Bitmap^ bmp = dynamic_cast<Bitmap^>(Input_Image_Box->Image->Clone());
 
@@ -275,6 +309,14 @@ namespace IMPACTLABGUI2024 {
 		else {
 			MessageBox::Show("No image loaded in the input image box", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
+		auto fim = std::chrono::high_resolution_clock::now();
+
+		std::chrono::duration<double> duracao = fim - inicio;
+
+		cout << duracao.count() << endl;
+
+		string str = std::to_string(duracao.count());
+		this->label1->Text = gcnew System::String(str.c_str());
 
 	}
 
@@ -319,6 +361,8 @@ namespace IMPACTLABGUI2024 {
 
 
 private: System::Void Invertido_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	auto inicio = std::chrono::high_resolution_clock::now();
 	if (Input_Image_Box->Image != nullptr) {
 		
 		Bitmap^ bmp = dynamic_cast<Bitmap^>(Input_Image_Box->Image->Clone());
@@ -336,11 +380,29 @@ private: System::Void Invertido_Click(System::Object^ sender, System::EventArgs^
 	else {
 		MessageBox::Show("No image loaded in the input image box", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
+	
+
+	auto fim = std::chrono::high_resolution_clock::now();
+
+	std::chrono::duration<double> duracao = fim - inicio;
+
+	cout << duracao.count() << endl;
+
+	string str = std::to_string(duracao.count());
+	this->label1->Text = gcnew System::String(str.c_str());
+	
+	
 }
 
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void IMPACTLAB_Form_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+}
+
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
