@@ -1,6 +1,6 @@
 # Equipe
 - Allan
-- Ana Julia
+- Ana Júlia Pereira Corrêa
 - Júlio Melo Campos
 - Ricardo Braz
 - Nilton da Silva
